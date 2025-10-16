@@ -55,8 +55,8 @@ Read our Code of Conduct for more.
 
 🛠 Useful Links
 *	README.md — overview & purpose
-*	cards-format.md — how to structure cards
-*	project-structure.md — for devs
+*	docs/cards-format.md — how to structure cards
+*	docs/project-structure.md — for devs
 *	good first issues
 
 ✨ Want to help, but unsure how?
