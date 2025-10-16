@@ -1,0 +1,1 @@
+<!-- TODO how to configure Memora Cards -->

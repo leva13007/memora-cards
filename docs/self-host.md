@@ -1,0 +1,1 @@
+<!-- TODO how to host your own version of Memora Cards -->
