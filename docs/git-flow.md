@@ -33,7 +33,7 @@ We use a **simple and clear Git workflow** to keep development organized, especi
 
 ## 🔁 Pull Request Rules
 
-- Open PRs **from your branch → `dev`**
+- Open PRs **from your branch → `develop`**
 - Keep PRs focused and scoped (1 feature / 1 fix)
 - Use clear titles and descriptions
 - Use [Conventional Commits](https://www.conventionalcommits.org/) for commit messages
@@ -48,9 +48,9 @@ Example commit messages:
 ## 🧪 Local Checklist before PR
 
 - [ ] Code is clean and formatted
-- [ ] Type check passes (`yarn typecheck`)
-- [ ] Linter passes (`yarn lint`)
-- [ ] Tested locally (`yarn dev`)
+- [ ] Type check passes (`pnpm run typecheck`)
+- [ ] Linter passes (`pnpm run lint`)
+- [ ] Tested locally (`pnpm run dev`)
 
 ---
 
