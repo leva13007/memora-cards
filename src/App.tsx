@@ -1,8 +1,8 @@
-function App() {
+import type React from "react"
+
+const App: React.FC = () => {
   return (
-    <>
-      <h1>MEMORA CARDS</h1>
-    </>
+    <h1>MEMORA CARDS</h1>
   )
 }
 
