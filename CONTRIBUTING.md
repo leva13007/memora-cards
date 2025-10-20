@@ -32,8 +32,8 @@ No need to write code — you can still:
 ```bash
 git clone https://github.com/leva13007/memora-cards
 cd memora-cards
-yarn install
-yarn dev
+pnpm install
+pnpm run dev
 ```
 
 2. Try editing public/cards.csv

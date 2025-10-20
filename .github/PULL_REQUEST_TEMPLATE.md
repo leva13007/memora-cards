@@ -16,9 +16,9 @@ Related to #___
 - [ ] The PR targets the `develop` branch
 - [ ] I've followed the [Git Flow rules](../docs/git-flow.md)
 - [ ] My commits follow [Conventional Commits](https://www.conventionalcommits.org/)
-- [ ] Code builds and works locally (`yarn dev`)
-- [ ] Type check passes (`yarn typecheck`)
-- [ ] Linter passes (`yarn lint`)
+- [ ] Code builds and works locally (`pnpm run dev`)
+- [ ] Type check passes (`pnpm run typecheck`)
+- [ ] Linter passes (`pnpm run lint`)
 - [ ] I've updated documentation if needed
 
 ---
