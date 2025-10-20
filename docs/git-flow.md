@@ -21,10 +21,13 @@ We use a **simple and clear Git workflow** to keep development organized, especi
 
 ## ✅ Naming Examples
 
-- `feature/cards-audio-support`
-- `fix/typo-in-config`
-- `docs/add-contributing-guide`
-- `chore/update-deps`
+- `feature/MC-{issue}/cards-audio-support`
+- `fix/MC-{issue}/typo-in-config`
+- `docs/MC-{issue}/add-contributing-guide`
+- `chore/MC-{issue}/update-deps`
+
+> MC - Memora Cards
+> {issue} - GitHub issue number (if applicable, otherwise use 0)
 
 ---
 
