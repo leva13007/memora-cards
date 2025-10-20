@@ -6,16 +6,16 @@ We use a **simple and clear Git workflow** to keep development organized, especi
 
 ## 📌 Branching Strategy
 
-| Branch         | Purpose                          |
-|----------------|----------------------------------|
-| `main`         | Stable, production-ready code    |
-| `dev`          | Active development (merged PRs)  |
-| `feature/*`    | New features in progress         |
-| `fix/*`        | Bugfixes                         |
-| `docs/*`       | Documentation-only updates       |
-| `chore/*`      | Minor tweaks, tooling, CI, etc.  |
+| Branch      | Purpose                          |
+|-------------|----------------------------------|
+| `main`      | Stable, production-ready code    |
+| `develop`   | Active development (merged PRs)  |
+| `feature/*` | New features in progress         |
+| `fix/*`     | Bugfixes                         |
+| `docs/*`    | Documentation-only updates       |
+| `chore/*`   | Minor tweaks, tooling, CI, etc.  |
 
-> PRs should always be made **from a `feature/*` branch into `dev`**, not directly into `main`.
+> PRs should always be made **from a `feature/*` branch into `develop`**, not directly into `main`.
 
 ---
 
@@ -33,7 +33,7 @@ We use a **simple and clear Git workflow** to keep development organized, especi
 
 ## 🔁 Pull Request Rules
 
-- Open PRs **from your branch → `dev`**
+- Open PRs **from your branch → `develop`**
 - Keep PRs focused and scoped (1 feature / 1 fix)
 - Use clear titles and descriptions
 - Use [Conventional Commits](https://www.conventionalcommits.org/) for commit messages
@@ -48,9 +48,9 @@ Example commit messages:
 ## 🧪 Local Checklist before PR
 
 - [ ] Code is clean and formatted
-- [ ] Type check passes (`yarn typecheck`)
-- [ ] Linter passes (`yarn lint`)
-- [ ] Tested locally (`yarn dev`)
+- [ ] Type check passes (`pnpm run typecheck`)
+- [ ] Linter passes (`pnpm run lint`)
+- [ ] Tested locally (`pnpm run dev`)
 
 ---
 
@@ -59,14 +59,14 @@ Example commit messages:
 - `main` is protected:
   - All changes must go through PR and review
   - Direct commits are blocked
-- `dev` is semi-protected:
+- `develop` is semi-protected:
   - PRs are encouraged, but trusted contributors can commit directly if needed
 
 ---
 
 ## 📅 Releases
 
-- Merge `dev → main` only when a new version is ready
+- Merge `develop → main` only when a new version is ready
 - Create a GitHub Release + update `CHANGELOG.md`
 
 ---
