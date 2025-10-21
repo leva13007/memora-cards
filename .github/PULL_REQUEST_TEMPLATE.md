@@ -23,6 +23,10 @@ Related to #___
 
 ---
 
+## Screenshots
+
+<!-- Screenshots? -->
+
 ## 📝 Additional Notes
 
-<!-- Anything else reviewers should know? Screenshots? Gotchas? -->
+<!-- Anything else reviewers should know? Gotchas? -->

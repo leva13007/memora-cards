@@ -2,9 +2,27 @@
   "name": "memora_cards",
   "private": false,
   "version": "0.0.1",
+  "description": "Modern flashcards app to help you learn and memorize anything effectively.",
+  "author": "@zloyleva (https://github.com/leva13007)",
   "main": "index.js",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leva13007/memora-cards"
+  },
+  "homepage": "https://github.com/leva13007/memora-cards",
+  "engines": {
+    "node": "24"
+  },
   "type": "module",
+  "keywords": [
+    "react",
+    "flashcards",
+    "learning",
+    "education",
+    "memorization",
+    "study"
+  ],
   "scripts": {
     "typecheck": "tsc --noEmit",
     "dev": "vite",

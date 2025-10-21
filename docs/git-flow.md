@@ -28,6 +28,7 @@ We use a **simple and clear Git workflow** to keep development organized, especi
 
 > MC - Memora Cards
 > {issue} - GitHub issue number (if applicable, otherwise use 0)
+> You can use only lowercase/uppercase letters (latin -> a-zA-Z), numbers, hyphens (`-`), and slashes (`/`) in branch names.
 
 ---
 
