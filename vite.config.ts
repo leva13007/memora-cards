@@ -5,8 +5,8 @@ export default defineConfig({
   plugins: [
     react({
       babel: {
-        plugins: [],
-      },
-    }),
-  ],
+        plugins: []
+      }
+    })
+  ]
 })
