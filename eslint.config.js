@@ -1,10 +1,10 @@
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-import tseslint from 'typescript-eslint'
-import stylistic from '@stylistic/eslint-plugin'
-import { defineConfig, globalIgnores } from 'eslint/config'
-import rules from './eslint.rules.js'
-import globals from 'globals'
+import reactHooks from 'eslint-plugin-react-hooks';
+import reactRefresh from 'eslint-plugin-react-refresh';
+import tseslint from 'typescript-eslint';
+import stylistic from '@stylistic/eslint-plugin';
+import { defineConfig, globalIgnores } from 'eslint/config';
+import rules from './eslint.rules.js';
+import globals from 'globals';
 
 export default defineConfig([
   globalIgnores(['dist', 'node_modules']),
@@ -32,4 +32,4 @@ export default defineConfig([
       }
     }
   }
-])
+]);

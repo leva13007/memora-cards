@@ -4,7 +4,7 @@
 `pnpm install`
 
 ### 2. Check Eslint run result
-`pnpm run lint`
+`pnpm lint`
 
 ### Linting Rules
 Project uses the custom Eslint config based on the standard Eslint, TS etc. recommended configs.

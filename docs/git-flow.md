@@ -49,9 +49,9 @@ Example commit messages:
 ## 🧪 Local Checklist before PR
 
 - [ ] Code is clean and formatted
-- [ ] Type check passes (`pnpm run typecheck`)
-- [ ] Linter passes (`pnpm run lint`)
-- [ ] Tested locally (`pnpm run dev`)
+- [ ] Type check passes (`pnpm typecheck`)
+- [ ] Linter passes (`pnpm lint`)
+- [ ] Tested locally (`pnpm dev`)
 
 ---
 

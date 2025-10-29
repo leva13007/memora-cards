@@ -1,0 +1,7 @@
+:root {
+  --palette-1: #1a1a1a;
+  --palette-2: #e71919;
+  
+  --color-primary: var(--palette-1);
+  --color-warning: var(--palette-2);
+}

@@ -33,7 +33,7 @@ No need to write code — you can still:
 git clone https://github.com/leva13007/memora-cards
 cd memora-cards
 pnpm install
-pnpm run dev
+pnpm dev
 ```
 
 2. Try editing public/cards.csv
