@@ -41,6 +41,7 @@ To ensure long-term stability and reproducibility of builds and tutorials:
 
 - All packages are added with **exact version locking**
 - No `^` or `latest` is used
+- For `devDependencies` use patch versioning `~`
 - `.npmrc` includes `save-exact=true`
 - The `pnpm-lock.yaml` file is committed and must not be modified manually
 
