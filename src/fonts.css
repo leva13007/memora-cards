@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Inter';
   src: local('Inter'),
-    url('./fonts/woff2/Inter-VariableFont_opsz,wght.woff2') format('woff2');
+    url('/fonts/woff2/Inter-VariableFont_opsz,wght.woff2') format('woff2');
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
@@ -10,7 +10,7 @@
 @font-face {
   font-family: 'Inter';
   src: local('Inter'),
-    url('./fonts/woff2/Inter-Italic-VariableFont_opsz,wght.woff2') format('woff2');
+    url('/fonts/woff2/Inter-Italic-VariableFont_opsz,wght.woff2') format('woff2');
   font-weight: 100 900;
   font-style: italic;
   font-display: swap;

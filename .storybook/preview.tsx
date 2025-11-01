@@ -1,4 +1,9 @@
+import React from 'react';
 import type { Preview } from '@storybook/react-vite';
+import {
+  createHashRouter,
+  RouterProvider
+} from 'react-router';
 
 const preview: Preview = {
   parameters: {
@@ -15,7 +20,19 @@ const preview: Preview = {
       // 'off' - skip a11y checks entirely
       test: 'todo'
     }
-  }
+  },
+  decorators: [
+    (Story) => {
+      const router = createHashRouter([
+        {
+          path: '/',
+          Component: Story
+        }
+      ]);
+
+      return <RouterProvider router={router} />;
+    }
+  ]
 };
 
 export default preview;
