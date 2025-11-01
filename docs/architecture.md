@@ -1,4 +1,4 @@
-# Architecture
+# 🛠️ Build Tools & Dependencies
 
 ## 🎯 Why Vite?
 

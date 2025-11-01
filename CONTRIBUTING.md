@@ -36,11 +36,11 @@ pnpm install
 pnpm dev
 ```
 
-2. Try editing public/cards.csv
+### 2. Try editing public/cards.csv
 
-This is the default deck. See docs/cards-format.md for the format.
+This is the default deck. See `docs/cards-format.md` for the format.
 
-3. Add a new deck (optional)
+### 3. Add a new deck (optional)
 
 You can configure deck.config.json to load cards from a remote URL or folder.
 

@@ -1,8 +1,12 @@
+# 🧪 Testing Strategy
 
-## Testing Strategy
+## Overview
 
 To keep the project stable, contributor-friendly, and not bloated with useless tests, we follow purposeful and minimalistic testing.
-1. Pure functions / utilities
+
+## What We Test
+
+### 1. Pure functions / utilities
 ```ts
 // csv.ts
 export function parseCsv(csv: string): Card[] { ... }
@@ -17,7 +21,7 @@ test('parses CSV correctly', () => {
 });
 ```
 
-2. Hooks and stores
+### 2. Hooks and stores
 ```ts
 // useDeckStore.ts
 export const useDeckStore = create(...)
@@ -29,7 +33,7 @@ test('initial state has empty deck list', () => {
 });
 ```
 
-3. Feature logic / interaction
+### 3. Feature logic / interaction
 ```ts
 // features/import-deck/ui/ImportButton.tsx
 <button onClick={handleImport}>Import CSV</button>
@@ -44,7 +48,7 @@ test('imports cards from CSV and updates store', async () => {
 });
 ```
 
-4. UI with logic
+### 4. UI with logic
 ```ts
 export const CardRow = ({ card }: { card: Card }) => (
   <div>
@@ -56,13 +60,14 @@ export const CardRow = ({ card }: { card: Card }) => (
 
 ```ts
 test('renders name', () => {
-  const { getByText, getByRole } = render(<CardRow card={{title: "Hello"}} />)
-  expect.element(getByText('Hello')).toBeInTheDocument();
-})
+  const { getByText } = render(<CardRow card={{ title: "Hello" }} />);
+  expect(getByText('Hello')).toBeInTheDocument();
+});
 ```
 
-### Where Tests Live
-Co-located next to implementation
+## Where Tests Live
+
+Tests are co-located next to their implementation:
 ```
 shared/
   lib/

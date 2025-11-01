@@ -6,69 +6,204 @@ We use a **simple and clear Git workflow** to keep development organized, especi
 
 ## 📌 Branching Strategy
 
-| Branch      | Purpose                          |
-|-------------|----------------------------------|
-| `main`      | Stable, production-ready code    |
-| `develop`   | Active development (merged PRs)  |
-| `feature/*` | New features in progress         |
-| `fix/*`     | Bugfixes                         |
-| `docs/*`    | Documentation-only updates       |
-| `chore/*`   | Minor tweaks, tooling, CI, etc.  |
+| Branch      | Purpose                          | Base Branch |
+|-------------|----------------------------------|-------------|
+| `main`      | Stable, production-ready code    | —           |
+| `develop`   | Active development (merged PRs)  | `main`      |
+| `feature/*` | New features in progress         | `develop`   |
+| `fix/*`     | Bugfixes                         | `develop`   |
+| `docs/*`    | Documentation-only updates       | `develop`   |
+| `chore/*`   | Minor tweaks, tooling, CI, etc.  | `develop`   |
 
-> PRs should always be made **from a `feature/*` branch into `develop`**, not directly into `main`.
-
----
-
-## ✅ Naming Examples
-
-- `feature/MC-{issue}/cards-audio-support`
-- `fix/MC-{issue}/typo-in-config`
-- `docs/MC-{issue}/add-contributing-guide`
-- `chore/MC-{issue}/update-deps`
-
-> MC - Memora Cards
-> {issue} - GitHub issue number (if applicable, otherwise use 0)
-> You can use only lowercase/uppercase letters (latin -> a-zA-Z), numbers, hyphens (`-`), and slashes (`/`) in branch names.
+> ⚠️ **Important**: PRs should always target **`develop`**, not directly into `main`. Only merge `develop → main` during releases.
 
 ---
 
-## 🔁 Pull Request Rules
+## ✅ Branch Naming Convention
 
-- Open PRs **from your branch → `develop`**
-- Keep PRs focused and scoped (1 feature / 1 fix)
-- Use clear titles and descriptions
-- Use [Conventional Commits](https://www.conventionalcommits.org/) for commit messages
+Use the following format: `{type}/MC-{issue}/{description}`
 
-Example commit messages:
-- `feat(cards): add support for video cards`
-- `fix(config): fallback when config is missing`
-- `docs: improve getting started section`
+### Examples
+
+- `feature/MC-15/cards-audio-support`
+- `fix/MC-42/typo-in-config`
+- `docs/MC-0/add-contributing-guide`
+- `chore/MC-8/update-dependencies`
+
+### Format Rules
+
+- **Type**: One of `feature`, `fix`, `docs`, `chore`
+- **MC-{issue}**: 
+  - `MC` stands for "Memora Cards"
+  - `{issue}` is the GitHub issue number
+  - Use `MC-0` if there's no associated issue
+- **Description**: Short, kebab-case description of the change
+- **Allowed characters**: Lowercase/uppercase letters (a-z, A-Z), numbers, hyphens (`-`), and slashes (`/`)
+
+> 💡 **Tip**: Keep branch names descriptive but concise. Examples: `feature/MC-15/audio-cards`, `fix/MC-23/login-bug`
 
 ---
 
-## 🧪 Local Checklist before PR
+## 🔁 Pull Request Workflow
 
-- [ ] Code is clean and formatted
-- [ ] Type check passes (`pnpm typecheck`)
-- [ ] Linter passes (`pnpm lint`)
-- [ ] Tested locally (`pnpm dev`)
+### Creating a PR
+
+1. **Create your branch** from `develop`:
+   ```bash
+   git checkout develop
+   git pull origin develop
+   git checkout -b feature/MC-15/your-feature-name
+   ```
+
+2. **Make your changes** and commit:
+   ```bash
+   git add .
+   git commit -m "feat(MC-15): add support for video cards"
+   ```
+
+3. **Push and open PR**:
+   ```bash
+   git push origin feature/MC-15/your-feature-name
+   ```
+   Then open a PR on GitHub targeting `develop`.
+
+### PR Requirements
+
+- ✅ Target branch: **`develop`** (never `main` directly)
+- ✅ Keep PRs focused: One feature/fix per PR
+- ✅ Use clear, descriptive titles
+- ✅ Include a description explaining what and why
+- ✅ Reference related issues: "Closes #15" or "Fixes #42"
+
+### Commit Message Format
+
+Follow [Conventional Commits](https://www.conventionalcommits.org/):
+
+**Format**: `{type}(MC-{issue}): {description}`
+
+Where:
+- **Type**: One of the commit types below
+- **MC-{issue}**: The GitHub issue number (use `MC-0` if no associated issue)
+- **Description**: Clear, concise description of the change
+
+**Types**:
+- `feat`: New feature
+- `fix`: Bug fix
+- `docs`: Documentation changes
+- `chore`: Maintenance tasks (deps, tooling, etc.)
+- `refactor`: Code refactoring
+- `test`: Test additions/changes
+
+**Examples**:
+- `feat(MC-15): add support for video cards`
+- `fix(MC-42): fallback when config is missing`
+- `docs(MC-8): improve getting started section`
+- `chore(MC-0): update dependencies to latest versions`
+- `fix(MC-23): resolve login authentication bug`
+
+> 💡 **Note**: The scope uses the issue number (MC-{issue}) to maintain consistency with branch naming and make it easy to trace commits back to issues.
+
+---
+
+## 🧪 Pre-PR Checklist
+
+Before opening a PR, ensure:
+
+- [ ] Code is clean and properly formatted
+- [ ] Type check passes: `pnpm typecheck`
+- [ ] Linter passes: `pnpm lint` (or `pnpm lint:fix` to auto-fix)
+- [ ] Tests pass (if applicable): `pnpm test` (if tests are written)
+- [ ] Tested locally: `pnpm dev`
+- [ ] Branch is up-to-date with `develop`: `git pull origin develop`
+- [ ] No merge conflicts with `develop`
+- [ ] Commit messages follow conventional commits format
 
 ---
 
 ## 🔒 Protected Branches
 
-- `main` is protected:
-  - All changes must go through PR and review
-  - Direct commits are blocked
-- `develop` is semi-protected:
-  - PRs are encouraged, but trusted contributors can commit directly if needed
+### `main` Branch
+- ✅ Fully protected
+- ✅ All changes must go through PR + review
+- ✅ Direct commits are blocked
+- ✅ Only merged from `develop` during releases
+
+### `develop` Branch
+- ⚠️ Semi-protected
+- ✅ PRs are strongly encouraged
+- ⚠️ Trusted core contributors may commit directly for minor fixes
+- ✅ Regular contributors should always use PRs
 
 ---
 
-## 📅 Releases
+## 📅 Release Process
 
-- Merge `develop → main` only when a new version is ready
-- Create a GitHub Release + update `CHANGELOG.md`
+### Creating a Release
+
+1. **Ensure `develop` is stable**:
+   - All PRs merged
+   - Tests passing
+   - Documentation updated
+
+2. **Merge `develop → main`**:
+   ```bash
+   git checkout main
+   git pull origin main
+   git merge develop
+   git push origin main
+   ```
+
+3. **Create a release tag**:
+   ```bash
+   git tag -a v1.0.0 -m "Release v1.0.0"
+   git push origin v1.0.0
+   ```
+
+4. **Create GitHub Release**:
+   - Go to GitHub → Releases → Draft a new release
+   - Use the tag you just created
+   - Include release notes summarizing changes
+
+5. **Update CHANGELOG.md** (if maintained):
+   - Document new features, fixes, and breaking changes
+
+---
+
+## 🔄 Syncing Your Branch
+
+### Keep your branch up-to-date with `develop`
+
+If `develop` has moved ahead while you're working:
+
+```bash
+# From your feature branch
+git checkout feature/MC-15/your-feature
+git fetch origin
+git rebase origin/develop
+# Resolve any conflicts if needed
+git push --force-with-lease origin feature/MC-15/your-feature
+```
+
+> ⚠️ **Note**: Use `--force-with-lease` instead of `--force` for safety. Only force-push to your own feature branches, never to `develop` or `main`.
+
+---
+
+## 🐛 Handling Conflicts
+
+If you encounter merge conflicts:
+
+1. **During rebase/merge**:
+   ```bash
+   # Git will mark conflicts
+   # Edit files to resolve conflicts
+   git add .
+   git rebase --continue  # or git commit if merging
+   ```
+
+2. **Best practices**:
+   - Communicate with team if conflicts are complex
+   - Test thoroughly after resolving
+   - Consider asking for help in PR comments
 
 ---
 

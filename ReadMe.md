@@ -27,9 +27,26 @@ Whether you write code or not — you can still be part of Memora Cards!
 ---
 
 📚 Documentation
-* cards-format.md – how flashcards are structured
-* project-structure.md – how the codebase works
-* docs/self-host.md (coming soon) – how to host your own version
+
+### Getting Started
+* [CONTRIBUTING.md](./CONTRIBUTING.md) – How to contribute to the project
+* [VISION.md](./VISION.md) – Project vision and values
+* [TEAM_RULES.md](./TEAM_RULES.md) – Team guidelines and workflows
+
+### Technical Docs
+* [docs/cards-format.md](./docs/cards-format.md) – How flashcards are structured
+* [docs/config-schema.md](./docs/config-schema.md) – Configuration file schema
+* [docs/project-structure.md](./docs/project-structure.md) – How the codebase is organized
+* [docs/memora-architecture.md](./docs/memora-architecture.md) – Architecture principles
+* [docs/architecture.md](./docs/architecture.md) – Build tools and dependencies
+
+### Development
+* [docs/git-flow.md](./docs/git-flow.md) – Git workflow and branching
+* [docs/lint.md](./docs/lint.md) – Linting setup guide
+* [docs/testing strategy.md](./docs/testing strategy.md) – Testing approach
+
+### Deployment
+* [docs/self-host.md](./docs/self-host.md) – How to host your own version
 
 ---
 
