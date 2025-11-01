@@ -1,74 +1,74 @@
 # 🌟 VISION: Memora Cards
 
-## 🧠 Що таке Memora Cards?
+## 🧠 What is Memora Cards?
 
-**Memora Cards** — це відкритий інструмент для створення, перегляду й поширення карток для навчання (flashcards), який поєднує простоту, гнучкість і повну автономність користувача.
+**Memora Cards** is an open-source tool for creating, viewing, and sharing learning flashcards that combines simplicity, flexibility, and full user autonomy.
 
-Ми віримо, що кожен має право:
-- навчатися у своєму темпі,
-- будувати власний контент,
-- не залежати від платних сервісів чи обмежених платформ.
-
----
-
-## 🌍 Для кого ми це будуємо?
-
-### 👤 Користувачі:
-- Студенти, викладачі, самоучки
-- Ті, хто хоче **вчити, а не налаштовувати**
-- Ті, хто хоче **повну автономність** (без реєстрації, логіну чи інтернету)
-
-### 🧑‍💻 Розробники / контриб'ютори:
-- Ті, хто хоче внести вклад у реальний освітній інструмент
-- Хочуть побудувати щось разом, open source way
-- Новачки, які шукають комфортний проект для першого PR
+We believe that everyone has the right to:
+- Learn at their own pace
+- Build their own content
+- Not depend on paid services or restricted platforms
 
 ---
 
-## 💡 Цінності, які ми поділяємо
+## 🌍 Who are we building for?
 
-### 1. **Простота**
-- Код, що легко читати
-- Мінімальна конфігурація
-- Мінімум залежностей
+### 👤 Users:
+- Students, teachers, self-learners
+- Those who want to **learn, not configure**
+- Those who want **full autonomy** (no registration, login, or internet required)
 
-### 2. **Відкритість**
-- Ми вітаємо участь як core, так і shadow-контрибʼюторів
-- Ми прагнемо створити безпечну й доброзичливу атмосферу
-
-### 3. **Контроль**
-- Ви самі вирішуєте, які картки вивчати, де їх зберігати, як запускати систему
-- Немає замкнених баз даних, платних планів чи реклами
-
-### 4. **Людяність**
-- Наші інтерфейси — не тільки для “технарів”
-- Ми не навʼязуємо, а пропонуємо
-- Ми будуємо спільноту, а не просто репозиторій
+### 🧑‍💻 Developers / Contributors:
+- Those who want to contribute to a real educational tool
+- Those who want to build something together, open source way
+- Beginners looking for a comfortable project for their first PR
 
 ---
 
-## 🛤 Куди ми йдемо
+## 💡 Values We Share
 
-🔭 Наше бачення — це **Memora-платформа**, яка:
-- підтримує різні типи карток (текст, аудіо, відео, зображення, drag'n'drop)
-- дозволяє зручно імпортувати і створювати контент
-- підтримує конфігурацію прогресу (offline/local)
-- може бути запущена локально, на GitHub Pages, на мобільному пристрої
-- має API для майбутніх інтеграцій або автоматизацій
+### 1. **Simplicity**
+- Code that's easy to read
+- Minimal configuration
+- Few dependencies
+
+### 2. **Openness**
+- We welcome participation from both core and shadow contributors
+- We strive to create a safe and friendly atmosphere
+
+### 3. **Control**
+- You decide which cards to study, where to store them, how to run the system
+- No locked databases, paid plans, or advertising
+
+### 4. **Humanity**
+- Our interfaces are not just for "techies"
+- We don't impose, we offer
+- We build a community, not just a repository
 
 ---
 
-## 🧩 Чому “Memora”?
+## 🛤 Where We're Going
 
-> “Memora” = лат. памʼять  
-> Це гра слів, натхненна ідеєю **гідри памʼяті**, де кожна голова — окрема колода.  
-> Це те, що зростає, множиться, запамʼятовує.
+🔭 Our vision is a **Memora platform** that:
+- Supports different card types (text, audio, video, images, drag'n'drop)
+- Allows convenient importing and content creation
+- Supports progress configuration (offline/local)
+- Can be run locally, on GitHub Pages, on mobile devices
+- Has an API for future integrations or automation
 
 ---
 
-## 🤝 Запрошення
+## 🧩 Why "Memora"?
 
-Це не просто проект. Це — платформа для спільної роботи, дослідження, розвитку і вивчення.  
-**Ми шукаємо друзів, не юзерів. Співавторів, не підписників.**
+> "Memora" = Latin for memory  
+> It's a play on words, inspired by the idea of a **memory hydra**, where each head is a separate deck.  
+> It's something that grows, multiplies, remembers.
 
-Приєднуйся до нас у тому темпі, в якому тобі комфортно 💛
+---
+
+## 🤝 Invitation
+
+This is not just a project. It's a platform for collaboration, exploration, development, and learning.  
+**We're looking for friends, not users. Co-authors, not subscribers.**
+
+Join us at your own pace 💛

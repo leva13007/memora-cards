@@ -1,6 +1,8 @@
 # 🧱 Architecture Principles of Memora Cards
 
-This document defines the adopted architecture of the **Memora Cards** project. We use a **hybrid of Feature-Sliced Design (FSD) and Atomic Design** to ensure a clean, scalable, and developer-friendly structure for collaborative open-source development.
+This document explains the **architectural principles and design decisions** behind the Memora Cards project structure. It covers **why** we organize code this way and **how** to make architectural decisions when adding new code.
+
+> 📁 For a **practical guide** to file locations and naming conventions, see [`docs/project-structure.md`](./project-structure.md).
 
 ---
 
@@ -18,24 +20,24 @@ This separation provides clear boundaries:
 
 ---
 
-## 📁 Project Structure
+## 📁 Architectural Structure
 
-```
-/src
-  /app                 # App entry point, routing, global providers
-  /pages               # Route-level pages
-  /widgets             # Complex UI blocks combining features/entities
-  /features            # Self-contained units of user-facing functionality
-  /entities            # Domain models: card, deck, user, etc.
-  /shared
-    /ui                # Atomic UI components (dumb/presentational)
-      /atoms
-      /molecules
-      /organisms
-    /lib               # General utilities and helpers
-    /config            # Constants, default values
-    /types             # Common/shared types
-```
+The application is organized using Feature-Sliced Design (FSD) layered architecture:
+
+**Layers** (from top to bottom):
+- `app/` - Application initialization layer
+- `pages/` - Page-level composition layer
+- `widgets/` - Complex UI composition layer
+- `features/` - Business feature layer
+- `entities/` - Business entity layer
+- `shared/` - Shared infrastructure layer
+
+Within `shared/ui/`, we apply Atomic Design principles:
+- `atoms/` - Basic building blocks
+- `molecules/` - Composed components
+- `organisms/` - Complex components
+
+> 📁 See [`docs/project-structure.md`](./project-structure.md) for the complete directory tree and file locations.
 
 ---
 
@@ -162,8 +164,18 @@ We use **CSS Modules** with **BEM-lite class naming** inside each component's st
 * CSS Modules + BEM-lite naming gives style isolation without dependencies
 * Combining these ensures maintainability, performance, and open-source friendliness
 
-🔧 When creating a new module or component, always ask yourself:
+## 🤔 Decision Guide
 
-> “Is this UI-only? Domain logic? A user-facing feature?”
+When creating a new module or component, ask yourself:
 
-Then place it accordingly 😉
+> "Is this UI-only? Domain logic? A user-facing feature?"
+
+**Quick decision tree**:
+1. **Pure UI component?** → `shared/ui/` (atoms/molecules/organisms)
+2. **Business logic for a feature?** → `features/{feature-name}/`
+3. **Domain model/entity?** → `entities/{entity-name}/`
+4. **Shared utility?** → `shared/lib/`
+5. **Page/route?** → `pages/{page-name}/`
+6. **Complex composed UI block?** → `widgets/{widget-name}/`
+
+For file locations and naming conventions, see [`docs/project-structure.md`](./project-structure.md).
