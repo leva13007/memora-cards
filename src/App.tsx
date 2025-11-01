@@ -1,8 +1,10 @@
 import React from 'react';
+import { RouterProvider } from 'react-router/dom';
+import router from './routes.tsx';
 
 const App: React.FC = () => {
   return (
-    <h1>MEMORA CARDS</h1>
+    <RouterProvider router={router} />
   );
 };
 
