@@ -1,0 +1,32 @@
+# Get the current branch name
+BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
+
+# Check if branch name follows convention: {type}/MC-{issue}/{description}
+# Allowed types: feature, fix, docs, chore
+# Format: feature/MC-15/description or fix/MC-42/description, etc.
+if ! echo "$BRANCH_NAME" | grep -qE '^(feature|fix|docs|chore)/MC-[0-9]+/[a-zA-Z0-9-]+$'; then
+  echo "\n❌ Invalid branch name: $BRANCH_NAME"
+  echo "\nBranch name must follow the format: {type}/MC-{issue}/{description}"
+  echo "\nAllowed types: feature, fix, docs, chore"
+  echo "\nExamples:"
+  echo "  ✓ feature/MC-15/cards-audio-support"
+  echo "  ✓ fix/MC-42/typo-in-config"
+  echo "  ✓ docs/MC-0/add-contributing-guide"
+  echo "  ✓ chore/MC-8/update-dependencies"
+  echo "\nSee docs/git-flow.md for more details.\n"
+  exit 1
+fi
+
+echo "✅ Branch name convention check passed: $BRANCH_NAME\n"
+
+echo "\nRun lint and fix all issues..."
+pnpm lint:fix
+echo "\nLinting complete.\n"
+
+echo "\nRun tests..."
+pnpm test
+echo "\nTesting complete.\n"
+
+echo "\nRun storybook tests..."
+pnpm test-storybook
+echo "\nStorybook testing complete.\n"

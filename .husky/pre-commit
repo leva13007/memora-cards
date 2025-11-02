@@ -1,0 +1,3 @@
+echo "\nRun lint and fix all issues..."
+pnpm lint:fix
+echo "\nLinting complete.\n"
