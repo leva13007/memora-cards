@@ -71,9 +71,29 @@ Use the following format: `{type}/MC-{issue}/{description}`
 
 - ✅ Target branch: **`develop`** (never `main` directly)
 - ✅ Keep PRs focused: One feature/fix per PR
-- ✅ Use clear, descriptive titles
+- ✅ Use clear, descriptive titles following the format: `{type}: mc#{issue}/{description}`
 - ✅ Include a description explaining what and why
 - ✅ Reference related issues: "Closes #15" or "Fixes #42"
+
+### PR Title Format
+
+PR titles should follow this format: `{type}: mc#{issue} {description}`
+
+**Format**: `{type}: mc#{issue}/{description}`
+
+Where:
+- **Type**: One of `feat`, `fix`, `docs`, `chore`, `refactor`, `test`
+- **mc#{issue}**: The GitHub issue number (use `mc#0` if no associated issue)
+- **Description**: Short, descriptive summary of the PR
+
+**Examples**:
+- `feat: mc#15 add audio cards support`
+- `fix: mc#42 handle missing config fallback`
+- `docs: mc#0 update git-flow documentation`
+- `chore: mc#8 update dependencies`
+- `fix: mc#23 resolve login bug`
+
+> 💡 **Note**: PR titles use `mc#` prefix (lowercase) while commit messages use `MC-` prefix. Use `mc#0` for PRs without an associated issue.
 
 ### Commit Message Format
 
