@@ -32,26 +32,20 @@ export default mergeConfig(
           test: {
             name: 'react',
             globals: true,
-            environment: 'jsdom',
-            setupFiles: ['./test-setup.ts']
+            environment: 'jsdom'
           }
         }),
         defineProject({
           plugins: [
             storybookTest({
-              // The location of your Storybook config, main.js|ts
               configDir: path.join(dirname, '.storybook'),
-              // This should match your package.json script to run Storybook
-              // The --no-open flag will skip the automatic opening of a browser
-              storybookScript: 'yarn storybook --no-open'
+              storybookScript: 'pnpm storybook --no-open'
             })
           ],
           test: {
             name: 'storybook',
-            // Enable browser mode
             browser: {
               enabled: true,
-              // Make sure to install Playwright
               provider: playwright({}),
               headless: true,
               instances: [{ browser: 'chromium' }]

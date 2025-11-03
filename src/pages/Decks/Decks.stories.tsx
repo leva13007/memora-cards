@@ -1,12 +1,12 @@
+import { Decks } from './Decks.tsx';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import App from './App';
-
 const meta = {
-  title: 'Page/App',
-  component: App,
-  tags: ['autodocs']
-} satisfies Meta<typeof App>;
+  title: 'Page/Decks',
+  component: Decks,
+  tags: ['autodocs'],
+  decorators: []
+} satisfies Meta<typeof Decks>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
