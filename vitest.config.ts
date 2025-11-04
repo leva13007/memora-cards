@@ -42,6 +42,14 @@ export default mergeConfig(
               storybookScript: 'pnpm storybook --no-open'
             })
           ],
+          optimizeDeps: {
+            include: [
+              'react',
+              'react/jsx-dev-runtime',
+              'react-dom',
+              'react/jsx-runtime'
+            ]
+          },
           test: {
             name: 'storybook',
             browser: {
