@@ -1,0 +1,30 @@
+name: CI
+run-name: ${{ github.actor }} run Action on ${{ github.ref }}
+on: push
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: "Lint"
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.x
+      - name: Install Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24.x
+          cache: 'pnpm'
+      - name: Install Dependencies
+        run: pnpm i
+      - name: Lint
+        run: pnpm lint
+      - name: Tests
+        run: pnpm test
