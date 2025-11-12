@@ -32,11 +32,13 @@ jobs:
 
       - name: Deploy to GitHub Pages
         uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.MEM_STOYBOOK_TOKEN }}
         with:
           source-directory: 'docs'
           destination-github-username: 'leva13007'
           destination-repository-name: 'memora-cards-storybook'
           target-branch: main
-          github_token: ${{ secrets.MEM_STOYBOOK_TOKEN }}
+          # github_token: ${{ secrets.MEM_STOYBOOK_TOKEN }}
           user-name: github-actions[bot]
           user-email: github-actions[bot]@users.noreply.github.com
