@@ -1,0 +1,42 @@
+name: Deploy Storybook to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-storybook:
+    name: Deploy Storybook
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.20.0
+
+      - name: Install Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24.x
+          cache: 'pnpm'
+
+      - name: Install Dependencies
+        run: pnpm i
+
+      - name: Build Storybook
+        run: pnpm build-storybook --output-dir docs
+
+      - name: Deploy to GitHub Pages
+        uses: cpina/github-action-push-to-another-repository@main
+        with:
+          source-directory: 'docs'
+          destination-github-username: 'leva13007'
+          destination-repository-name: 'memora-cards-storybook'
+          target-branch: main
+          github_token: ${{ secrets.MEM_STOYBOOK_TOKEN }}
+          user-name: github-actions[bot]
+          user-email: github-actions[bot]@users.noreply.github.com
