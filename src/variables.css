@@ -1,7 +1,25 @@
 :root {
-  --palette-1: #1a1a1a;
-  --palette-2: #e71919;
-  
-  --color-primary: var(--palette-1);
-  --color-warning: var(--palette-2);
+  --color-bg: #ffffff;
+  --color-text: #212529;
+  --color-link: #1a73e8;
+
+  --font-title-1: 2rem;
+  --font-title-2: 1.5rem;
+  --font-text: 1rem;
+
+  --font-weight-bold: 700;
+  --font-weight-semi: 600;
+  --font-weight-normal: 400;
+
+  --container-padding: 1rem;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+      "wdth" 100;
+}
+
+[data-theme="dark"] {
+  --color-bg: #1c1f23;
+  --color-text: #e9ecef;
 }

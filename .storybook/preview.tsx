@@ -5,6 +5,10 @@ import {
   RouterProvider
 } from 'react-router';
 
+import '../src/fonts.css';
+import '../src/reset.css';
+import '../src/variables.css';
+
 const preview: Preview = {
   parameters: {
     controls: {
