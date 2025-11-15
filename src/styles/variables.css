@@ -3,7 +3,7 @@
   --color-text: #0f172a;
   --color-link: #0b57d0;
 
-  --font-title-1: 2rem;
+  --font-size-h-1: 2rem;
   --font-title-2: 1.5rem;
   --font-text: 1rem;
 
@@ -16,11 +16,23 @@
   font-optical-sizing: auto;
   font-style: normal;
   font-variation-settings:
-      "wdth" 100;
+    "wdth" 100;
 }
 
 [data-theme="dark"] {
   --color-bg: #101214;
   --color-text: #f5f7fb;
   --color-link: #8ab4f8;
+}
+
+@media (max-width: 1192px) {
+  :root {
+    --font-size-h-1: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --font-size-h-1: 1.5rem;
+  }
 }

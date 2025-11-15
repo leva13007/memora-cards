@@ -2,7 +2,7 @@ import { Container } from './Container.tsx';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta = {
-  title: 'Component/Container',
+  title: 'UI/Atoms/Container',
   component: Container,
   tags: ['autodocs'],
   args: {
