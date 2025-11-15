@@ -4,6 +4,7 @@
   --color-link: #0b57d0;
 
   --font-size-h-1: 2rem;
+  --font-size-h-2: 1.5rem;
   --font-title-2: 1.5rem;
   --font-text: 1rem;
 
@@ -28,11 +29,13 @@
 @media (max-width: 1192px) {
   :root {
     --font-size-h-1: 1.75rem;
+    --font-size-h-2: 1.25rem;
   }
 }
 
 @media (max-width: 768px) {
   :root {
     --font-size-h-1: 1.5rem;
+    --font-size-h-2: 1.125rem;
   }
 }

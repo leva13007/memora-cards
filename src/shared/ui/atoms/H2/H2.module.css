@@ -1,0 +1,7 @@
+.h2 {
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: var(--font-size-h-2);
+  font-weight: var(--font-weight-semi);
+  line-height: normal;
+}
