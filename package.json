@@ -44,14 +44,18 @@
     "react-router": "7.9.5"
   },
   "devDependencies": {
-    "@react-router/dev": "~7.9.5",
+    "@storybook/addon-themes": "~10.0.8",
     "@chromatic-com/storybook": "~4.1.2",
     "@eslint/js": "~9.36.0",
+    "@react-router/dev": "~7.9.5",
     "@storybook/addon-a11y": "~10.0.1",
     "@storybook/addon-docs": "~10.0.1",
     "@storybook/addon-vitest": "~10.0.1",
     "@storybook/react-vite": "~10.0.1",
     "@stylistic/eslint-plugin": "~5.5.0",
+    "@testing-library/jest-dom": "~6.9.1",
+    "@testing-library/react": "~16.3.0",
+    "@testing-library/user-event": "~14.6.1",
     "@types/node": "~24.8.1",
     "@types/react": "~19.2.0",
     "@types/react-dom": "~19.2.0",
@@ -63,16 +67,13 @@
     "eslint-plugin-react-refresh": "~0.4.22",
     "eslint-plugin-storybook": "~10.0.1",
     "globals": "~16.4.0",
-    "playwright": "~1.56.1",
     "husky": "~9.1.7",
+    "jsdom": "~27.0.1",
+    "playwright": "~1.56.1",
     "storybook": "~10.0.1",
     "typescript": "~5.9.3",
     "typescript-eslint": "~8.45.0",
-    "vitest": "~4.0.5",
     "vite": "~7.1.12",
-    "jsdom": "~27.0.1",
-    "@testing-library/jest-dom": "~6.9.1",
-    "@testing-library/react": "~16.3.0",
-    "@testing-library/user-event": "~14.6.1"
+    "vitest": "~4.0.5"
   }
 }

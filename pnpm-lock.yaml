@@ -36,6 +36,9 @@ importers:
       '@storybook/addon-docs':
         specifier: ~10.0.1
         version: 10.0.4(@types/react@19.2.2)(esbuild@0.25.12)(rollup@4.52.5)(storybook@10.0.4(@testing-library/dom@10.4.1)(prettier@3.6.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vite@7.1.12(@types/node@24.8.1)))(vite@7.1.12(@types/node@24.8.1))
+      '@storybook/addon-themes':
+        specifier: ~10.0.8
+        version: 10.0.8(storybook@10.0.4(@testing-library/dom@10.4.1)(prettier@3.6.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vite@7.1.12(@types/node@24.8.1)))
       '@storybook/addon-vitest':
         specifier: ~10.0.1
         version: 10.0.4(@vitest/browser-playwright@4.0.7)(@vitest/browser@4.0.7(vite@7.1.12(@types/node@24.8.1))(vitest@4.0.7))(@vitest/runner@4.0.7)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(storybook@10.0.4(@testing-library/dom@10.4.1)(prettier@3.6.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vite@7.1.12(@types/node@24.8.1)))(vitest@4.0.7)
@@ -763,6 +766,11 @@ packages:
     resolution: {integrity: sha512-RbrvAy0PNDLgTSVWofNd1Fa/3RvU9PRHvjhOVN9hgW/ToEKJaeQ0hxbnluwSp48VLAQNp16oDq8dphX/ASmQTg==}
     peerDependencies:
       storybook: ^10.0.4
+
+  '@storybook/addon-themes@10.0.8':
+    resolution: {integrity: sha512-rqESiwPfYClMSaeHIYxmAz6CR50dQTMCKa2mO8ZvEikdo1IBtzHJfmD9iAC6QQaFZSMG/17KVIWXJVjzWjLdfQ==}
+    peerDependencies:
+      storybook: ^10.0.8
 
   '@storybook/addon-vitest@10.0.4':
     resolution: {integrity: sha512-URmwUV9pjo0Ig3rONaQwcOa0HEYz2PzuH+tvp/JujnBXBSawFs3XVdpnfK48DRvyWk7mPWNlJa+eFU6VRmrDtg==}
@@ -3036,6 +3044,11 @@ snapshots:
       - rollup
       - vite
       - webpack
+
+  '@storybook/addon-themes@10.0.8(storybook@10.0.4(@testing-library/dom@10.4.1)(prettier@3.6.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vite@7.1.12(@types/node@24.8.1)))':
+    dependencies:
+      storybook: 10.0.4(@testing-library/dom@10.4.1)(prettier@3.6.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vite@7.1.12(@types/node@24.8.1))
+      ts-dedent: 2.2.0
 
   '@storybook/addon-vitest@10.0.4(@vitest/browser-playwright@4.0.7)(@vitest/browser@4.0.7(vite@7.1.12(@types/node@24.8.1))(vitest@4.0.7))(@vitest/runner@4.0.7)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(storybook@10.0.4(@testing-library/dom@10.4.1)(prettier@3.6.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vite@7.1.12(@types/node@24.8.1)))(vitest@4.0.7)':
     dependencies:
