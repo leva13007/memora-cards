@@ -5,6 +5,26 @@ import {
   RouterProvider
 } from 'react-router';
 
+import './preview.css';
+
+import { CssProvider } from '../src/providers/CssProvider.tsx';
+
+export const globalTypes = {
+  theme: {
+    name: 'Theme',
+    description: 'Global theme for components',
+    defaultValue: 'light',
+    toolbar: {
+      icon: 'circlehollow',
+      items: [
+        { value: 'light', title: 'Light Theme' },
+        { value: 'dark', title: 'Dark Theme' }
+      ],
+      showName: true
+    }
+  }
+};
+
 const preview: Preview = {
   parameters: {
     controls: {
@@ -22,7 +42,8 @@ const preview: Preview = {
     }
   },
   decorators: [
-    (Story) => {
+    (Story, context) => {
+      const theme = context.globals.theme || 'light';
       const router = createHashRouter([
         {
           path: '/',
@@ -30,7 +51,11 @@ const preview: Preview = {
         }
       ]);
 
-      return <RouterProvider router={router} />;
+      return (
+        <CssProvider theme={theme}>
+          <RouterProvider router={router} />
+        </CssProvider>
+      );
     }
   ]
 };
