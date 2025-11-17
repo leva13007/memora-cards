@@ -32,7 +32,8 @@ export default mergeConfig(
           test: {
             name: 'react',
             globals: true,
-            environment: 'jsdom'
+            environment: 'jsdom',
+            setupFiles: ['./src/test-setup/vitest.setup.ts']
           }
         }),
         defineProject({
