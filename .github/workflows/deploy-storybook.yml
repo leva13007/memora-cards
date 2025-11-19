@@ -36,6 +36,7 @@ jobs:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
           source-directory: 'docs'
+          target-directory: 'docs'
           destination-github-username: 'leva13007'
           destination-repository-name: 'memora-cards-storybook'
           target-branch: main
