@@ -1,0 +1,19 @@
+.text {
+  font-size: var(--fonts-size-text);
+  line-height: normal;
+}
+
+.text.primary { color: var(--color-text) }
+.text.warning { color: var(--color-warning) }
+
+.text-light {
+  font-weight: var(--font-weight-light);
+}
+
+.text-medium {
+  font-weight: var(--font-weight-normal);
+}
+
+.text-bold {
+  font-weight: var(--font-weight-bold);
+}
