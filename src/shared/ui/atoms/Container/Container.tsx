@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Container.module.css';
+import { cx } from '../../../../utils';
 
 interface ContainerProps {
   children: React.ReactNode
@@ -9,10 +10,11 @@ interface ContainerProps {
 }
 
 export const Container: React.FC<ContainerProps> = ({ children, className, style, fluid }) => {
-  const cls = [styles.container];
-  if (className) cls.push(...className);
-  if (fluid) cls.push(styles['container-fluid']);
-  const classes = cls.join(' ');
+  const classes = cx(
+    styles.container,
+    ...(className || []),
+    fluid ? styles['container-fluid'] : undefined
+  );
 
   return (
     <div style={style} className={classes}>{children}</div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './H1.module.css';
+import styles from './H2.module.css';
 import { cx } from '../../../../utils';
 
 interface H1Props {
@@ -9,13 +9,13 @@ interface H1Props {
   ['data-testid']?: string
 }
 
-export const H1: React.FC<H1Props> = ({ children, className, style, 'data-testid': dataTestId = 'heading' }) => {
+export const H2: React.FC<H1Props> = ({ children, className, style, 'data-testid': dataTestId = 'heading-2' }) => {
   const classes = cx(
-    styles.h1,
+    styles.h2,
     ...(className || [])
   );
 
   return (
-    <h1 style={style} className={classes} data-testid={dataTestId}>{children}</h1>
+    <h2 style={style} className={classes} data-testid={dataTestId}>{children}</h2>
   );
 };
