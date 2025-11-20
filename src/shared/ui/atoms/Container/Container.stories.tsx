@@ -23,6 +23,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Element: Story = {
   args: {
-    children: 'Title'
+    children: 'Title',
+    className: ['some-extra-class']
   }
 };
