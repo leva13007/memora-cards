@@ -17,7 +17,7 @@ const TextBase: React.FC<TextProps & { cssVariantKey: CssVariantKey }> = ({ chil
   const As = as || 'span';
 
   const classes = cx(
-    'text',
+    styles.text,
     styles[cssVariantKey],
     variant === 'warning' ? 'warning' : 'primary',
     ...(className || [])

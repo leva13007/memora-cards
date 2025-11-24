@@ -1,7 +1,8 @@
 :root {
   --color-bg: #fefeff;
   --color-text: #0f172a;
-  --color-link: #0b57d0;
+  --color-link: #1a73e8;
+  --color-link-hover: #174ea6;
   --color-warning: #ec1515;
 
   --font-size-h-1: 2rem;
