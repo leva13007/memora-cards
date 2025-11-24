@@ -7,7 +7,7 @@ body {
   min-height: 100vh;
 }
 
-#root {
+#root, #storybook-root {
   flex: 1;
   display: flex;
   flex-direction: column;
