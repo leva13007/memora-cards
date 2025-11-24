@@ -3,10 +3,10 @@ import styles from './Container.module.css';
 import { cx } from '../../../../utils';
 
 interface ContainerProps {
-  children: React.ReactNode
-  className?: string[]
-  style?: React.CSSProperties
-  fluid?: boolean
+  children: React.ReactNode;
+  className?: string[];
+  style?: React.CSSProperties;
+  fluid?: boolean;
 }
 
 export const Container: React.FC<ContainerProps> = ({ children, className, style, fluid }) => {

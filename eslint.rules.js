@@ -141,10 +141,10 @@ const stylistic = Object.freeze(
     '@stylistic/member-delimiter-style': [
       'error',
       {
-        multiline: { delimiter: 'none', requireLast: false },
+        multiline: { delimiter: 'semi', requireLast: true },
         multilineDetection: 'brackets',
         overrides: {
-          interface: { multiline: { delimiter: 'none', requireLast: false } }
+          interface: { multiline: { delimiter: 'semi', requireLast: true } }
         },
         singleline: { delimiter: 'comma' }
       }

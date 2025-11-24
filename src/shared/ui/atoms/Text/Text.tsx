@@ -3,12 +3,12 @@ import styles from './Text.module.css';
 import { cx } from '../../../../utils';
 
 export interface TextProps {
-  children: React.ReactNode
-  className?: string[]
-  style?: React.CSSProperties
-  as?: 'span' | 'p'
-  variant?: 'primary' | 'warning'
-  ['data-testid']?: string
+  children: React.ReactNode;
+  className?: string[];
+  style?: React.CSSProperties;
+  as?: 'span' | 'p';
+  variant?: 'primary' | 'warning';
+  ['data-testid']?: string;
 }
 
 type CssVariantKey = 'text-medium' | 'text-light' | 'text-bold';
