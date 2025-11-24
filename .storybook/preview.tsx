@@ -27,6 +27,7 @@ export const globalTypes = {
 
 const preview: Preview = {
   parameters: {
+    layout: 'none',
     controls: {
       matchers: {
         color: /(background|color)$/i,
