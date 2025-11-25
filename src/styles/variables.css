@@ -17,6 +17,9 @@
   --font-weight-light: 300;
 
   --container-padding: 1rem;
+
+  --breadcrumbs-gap: 0.25rem;
+  
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
