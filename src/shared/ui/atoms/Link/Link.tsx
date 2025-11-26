@@ -4,12 +4,12 @@ import { Link as RouterLink } from 'react-router';
 import { cx } from '../../../../utils';
 
 interface LinkProps {
-  children: React.ReactNode
-  className?: string[]
-  style?: React.CSSProperties
-  ['data-testid']?: string
-  to: string
-  ['aria-label']?: string
+  children: React.ReactNode;
+  className?: string[];
+  style?: React.CSSProperties;
+  ['data-testid']?: string;
+  to: string;
+  ['aria-label']?: string;
 }
 
 export const Link: React.FC<LinkProps> = ({

@@ -3,10 +3,10 @@ import styles from './H2.module.css';
 import { cx } from '../../../../utils';
 
 interface H1Props {
-  children: React.ReactNode
-  className?: string[]
-  style?: React.CSSProperties
-  ['data-testid']?: string
+  children: React.ReactNode;
+  className?: string[];
+  style?: React.CSSProperties;
+  ['data-testid']?: string;
 }
 
 export const H2: React.FC<H1Props> = ({ children, className, style, 'data-testid': dataTestId = 'heading-2' }) => {
