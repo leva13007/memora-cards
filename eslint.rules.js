@@ -118,7 +118,7 @@ const stylistic = Object.freeze(
       {
         ArrayExpression: 1,
         CallExpression: { arguments: 1 },
-        flatTernaryExpressions: false,
+        flatTernaryExpressions: true,
         FunctionDeclaration: { body: 1, parameters: 1, returnType: 1 },
         FunctionExpression: { body: 1, parameters: 1, returnType: 1 },
         ignoreComments: false,
@@ -126,7 +126,7 @@ const stylistic = Object.freeze(
         ImportDeclaration: 1,
         MemberExpression: 1,
         ObjectExpression: 1,
-        offsetTernaryExpressions: true,
+        offsetTernaryExpressions: false,
         outerIIFEBody: 1,
         SwitchCase: 1,
         tabLength: 2,
