@@ -19,7 +19,7 @@ const TextBase: React.FC<TextProps & { cssVariantKey: CssVariantKey }> = ({ chil
   const classes = cx(
     styles.text,
     styles[cssVariantKey],
-    variant === 'warning' ? 'warning' : 'primary',
+    variant === 'warning' ? styles.warning : styles.primary,
     ...(className || [])
   );
 
@@ -41,7 +41,6 @@ export const TextMedium: React.FC<TextProps> = ({ children, className, style, va
     />
   );
 };
-
 export const TextLight: React.FC<TextProps> = ({ children, className, style, variant, as, 'data-testid': dataTestId = 'text-light' }) => {
   return (
     <TextBase
