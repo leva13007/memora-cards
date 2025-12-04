@@ -18,7 +18,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Element: Story = {
+export const Default: Story = {
   args: {
     children: 'Title'
   }
@@ -42,5 +42,33 @@ export const CustomTestId: Story = {
   args: {
     'children': 'Title with Custom Test ID',
     'data-testid': 'custom-h1'
+  }
+};
+
+export const Warning: Story = {
+  args: {
+    children: 'Warning text',
+    variant: 'warning'
+  }
+};
+
+export const Primary: Story = {
+  args: {
+    children: 'Primary text',
+    variant: 'primary'
+  }
+};
+
+export const Paragraph: Story = {
+  args: {
+    children: 'Lorem ipsum sit amet',
+    as: 'p'
+  }
+};
+
+export const Span: Story = {
+  args: {
+    children: 'Lorem ipsum sit amet',
+    as: 'span'
   }
 };
