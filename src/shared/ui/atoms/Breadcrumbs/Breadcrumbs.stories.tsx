@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Breadcrumbs } from './Breadcrumbs.tsx';
 
 const meta = {
-  title: 'UI/Atoms/Breadcrumbs',
+  title: 'UI/Molecules/Breadcrumbs',
   component: Breadcrumbs,
   tags: ['autodocs'],
   args: {

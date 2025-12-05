@@ -1,6 +1,6 @@
 import React from 'react';
 import { TextMedium } from '../Text/Text.tsx';
-import { Link } from '../Link/Link.tsx';
+import { TextLink } from '../TextLink/TextLink.tsx';
 
 import styles from './Breadcrumbs.module.css';
 import { cx } from '../../../../utils';
@@ -47,7 +47,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
               {
                 item.link
                   ? (
-                    <Link to={item.link} className={[styles.label]} data-testid={`${dataTestId}-link-${i}`}>{item.label}</Link>
+                    <TextLink to={item.link} className={[styles.label]} data-testid={`${dataTestId}-link-${i}`} content={item.label} />
                   )
                   : (
                     <TextMedium className={[styles.label]} data-testid={`${dataTestId}-text`}>{item.label}</TextMedium>

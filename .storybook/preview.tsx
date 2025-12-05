@@ -1,9 +1,6 @@
 import React from 'react';
 import type { Preview } from '@storybook/react-vite';
-import {
-  createHashRouter,
-  RouterProvider
-} from 'react-router';
+import { MemoryRouter } from 'react-router';
 
 import './preview.css';
 
@@ -45,16 +42,12 @@ const preview: Preview = {
   decorators: [
     (Story, context) => {
       const theme = context.globals.theme || 'light';
-      const router = createHashRouter([
-        {
-          path: '/',
-          Component: Story
-        }
-      ]);
 
       return (
         <CssProvider theme={theme}>
-          <RouterProvider router={router} />
+          <MemoryRouter initialEntries={['/']}>
+            <Story />
+          </MemoryRouter>
         </CssProvider>
       );
     }
