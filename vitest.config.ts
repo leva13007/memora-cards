@@ -33,7 +33,12 @@ export default mergeConfig(
             name: 'react',
             globals: true,
             environment: 'jsdom',
-            setupFiles: ['./src/test-setup/vitest.setup.ts']
+            setupFiles: ['./src/test-setup/vitest.setup.ts'],
+            css: {
+              modules: {
+                classNameStrategy: 'non-scoped'
+              }
+            }
           }
         }),
         defineProject({

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Text.module.css';
-import { cx } from '../../../../utils';
+import { clx } from '../../../../utils';
 
 export interface TextProps {
   children: React.ReactNode
@@ -16,10 +16,11 @@ type CssVariantKey = 'text-medium' | 'text-light' | 'text-bold';
 const TextBase: React.FC<TextProps & { cssVariantKey: CssVariantKey }> = ({ children, className, style, variant, as, 'data-testid': dataTestId = 'text-base', cssVariantKey }) => {
   const As = as || 'span';
 
-  const classes = cx(
-    styles.text,
+  const classes = clx(
+    styles,
+    'text',
     styles[cssVariantKey],
-    variant === 'warning' ? styles.warning : styles.primary,
+    variant === 'warning' ? 'warning' : 'primary',
     ...(className || [])
   );
 

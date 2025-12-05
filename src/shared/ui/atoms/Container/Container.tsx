@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Container.module.css';
-import { cx } from '../../../../utils';
+import { clx } from '../../../../utils';
 
 interface ContainerProps {
   children: React.ReactNode
@@ -10,10 +10,11 @@ interface ContainerProps {
 }
 
 export const Container: React.FC<ContainerProps> = ({ children, className, style, fluid }) => {
-  const classes = cx(
-    styles.container,
+  const classes = clx(
+    styles,
+    'container',
     ...(className || []),
-    fluid ? styles['container-fluid'] : undefined
+    fluid ? 'container-fluid' : undefined
   );
 
   return (

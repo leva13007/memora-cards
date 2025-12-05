@@ -26,6 +26,14 @@ export const Default: Story = {
   }
 };
 
+export const LinkHovered: Story = {
+  args: {
+    content: 'Hovered Link',
+    to: '/',
+    className: ['__hovered', 'additional-class']
+  }
+};
+
 export const RedTitle: Story = {
   args: {
     content: 'Red TextLink',
