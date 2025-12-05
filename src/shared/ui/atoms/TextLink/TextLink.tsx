@@ -1,10 +1,10 @@
 import React from 'react';
-import styles from './Link.module.css';
+import styles from './TextLink.module.css';
 import { Link as RouterLink } from 'react-router';
 import { cx } from '../../../../utils';
 
-interface LinkProps {
-  children: React.ReactNode
+interface TextLinkProps {
+  content: string
   className?: string[]
   style?: React.CSSProperties
   ['data-testid']?: string
@@ -12,8 +12,8 @@ interface LinkProps {
   ['aria-label']?: string
 }
 
-export const Link: React.FC<LinkProps> = ({
-  children,
+export const TextLink: React.FC<TextLinkProps> = ({
+  content,
   className,
   style,
   to,
@@ -27,7 +27,7 @@ export const Link: React.FC<LinkProps> = ({
 
   return (
     <RouterLink to={to} style={style} className={classes} data-testid={dataTestId} aria-label={ariaLabel}>
-      {children}
+      {content}
     </RouterLink>
   );
 };

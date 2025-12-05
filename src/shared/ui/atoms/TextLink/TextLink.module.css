@@ -7,10 +7,6 @@
   text-decoration: unset;
 }
 
-.link:hover {
+.link:hover, .link.__hovered {
   color: var(--color-link-hover);
-}
-
-.link:visited {
-  color: var(--color-link);
 }
