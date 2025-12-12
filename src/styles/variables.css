@@ -33,7 +33,7 @@
   --color-link: #8ab4f8;
 }
 
-@media (max-width: 1192px) {
+@media (max-width: 1279px) {
   :root {
     --font-size-h-1: 1.75rem;
     --font-size-h-2: 1.25rem;
@@ -41,7 +41,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   :root {
     --font-size-h-1: 1.5rem;
     --font-size-h-2: 1.125rem;

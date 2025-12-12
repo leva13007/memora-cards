@@ -6,13 +6,13 @@
   padding-right: var(--container-padding, 0);
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 1279px) {
   .container {
     width: 700px;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .container {
     width: 100%;
     max-width: 100%;
