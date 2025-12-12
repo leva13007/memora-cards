@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './H2.module.css';
-import { cx } from '../../../../utils';
+import { clx } from '../../../../utils';
 
 interface H1Props {
   children: React.ReactNode
@@ -10,8 +10,9 @@ interface H1Props {
 }
 
 export const H2: React.FC<H1Props> = ({ children, className, style, 'data-testid': dataTestId = 'heading-2' }) => {
-  const classes = cx(
-    styles.h2,
+  const classes = clx(
+    styles,
+    'h2',
     ...(className || [])
   );
 

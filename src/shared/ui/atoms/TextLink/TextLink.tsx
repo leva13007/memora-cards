@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './TextLink.module.css';
 import { Link as RouterLink } from 'react-router';
-import { cx } from '../../../../utils';
+import { clx } from '../../../../utils';
 
 interface TextLinkProps {
   content: string
@@ -20,8 +20,9 @@ export const TextLink: React.FC<TextLinkProps> = ({
   'aria-label': ariaLabel,
   'data-testid': dataTestId = 'link'
 }) => {
-  const classes = cx(
-    styles.link,
+  const classes = clx(
+    styles,
+    'link',
     ...(className || [])
   );
 

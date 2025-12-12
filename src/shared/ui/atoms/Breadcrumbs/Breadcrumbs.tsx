@@ -3,7 +3,7 @@ import { TextMedium } from '../Text/Text.tsx';
 import { TextLink } from '../TextLink/TextLink.tsx';
 
 import styles from './Breadcrumbs.module.css';
-import { cx } from '../../../../utils';
+import { clx } from '../../../../utils';
 
 export interface BreadcrumbItem {
   label: string
@@ -27,9 +27,10 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
   separator = '/',
   'data-testid': dataTestId = 'breadcrumbs'
 }) => {
-  const classes = cx(
-    styles.breadcrumbs,
-    styles[`variant--${variant}`],
+  const classes = clx(
+    styles,
+    'breadcrumbs',
+    `variant--${variant}`,
     ...(className || [])
   );
 

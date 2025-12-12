@@ -1,3 +1,4 @@
-export const cx = (...classNames: (string | undefined | false | null)[]): string => {
-  return classNames.flat(Infinity).filter(Boolean).join(' ');
+export const clx = (cssModuleObject: Record<string, string>, ...cls: (string | undefined | false | null)[]): string => {
+  const incomingClasses = ((cls || []).flat(Infinity).filter(Boolean) as string[]).map(cl => cssModuleObject[cl] ?? cl);
+  return incomingClasses.join(' ');
 };
