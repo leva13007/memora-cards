@@ -21,9 +21,16 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Element: Story = {
+export const Default: Story = {
   args: {
     children: 'Title',
     className: ['some-extra-class']
+  }
+};
+
+export const Fluid: Story = {
+  args: {
+    children: 'Fluid Container',
+    fluid: true
   }
 };
