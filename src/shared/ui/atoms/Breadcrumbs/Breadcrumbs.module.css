@@ -4,19 +4,13 @@
   gap: var(--breadcrumbs-gap);
   max-width: 100vw;
   overflow-x: hidden;
+
+  flex-wrap: wrap;
+  white-space: normal;
 }
 
 .breadcrumbs .separator {
   padding-right: var(--breadcrumbs-gap);
-}
-
-.breadcrumbs.variant--wrap {
-  flex-wrap: wrap;
-}
-
-.breadcrumbs.variant--truncate {
-  flex-wrap: nowrap;
-  white-space: nowrap;
 }
 
 .breadcrumbs .label {

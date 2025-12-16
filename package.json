@@ -30,7 +30,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "preview": "vite preview",
-    "test": "vitest --project=react",
+    "test": "vitest run --project=react --reporter=verbose",
     "test:coverage": "vitest run --project=react --coverage --reporter=verbose",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
