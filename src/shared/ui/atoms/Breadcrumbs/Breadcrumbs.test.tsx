@@ -1,128 +1,181 @@
-import { screen } from '@testing-library/react';
-import { vi, describe, it, expect } from 'vitest';
-import { Breadcrumbs, type BreadcrumbItem } from './Breadcrumbs';
-import { renderWithProviders } from '../../../../test-setup/renderWithProviders';
+import React from 'react';
+import { describe, it, expect, vi } from 'vitest';
+import { render, screen, within } from '@testing-library/react';
+import { Breadcrumbs } from './Breadcrumbs';
 
-// Mock CSS module
+type TextMediumProps = React.ComponentPropsWithoutRef<'span'> & {
+  className?: string | string[]
+};
+
+type TextLinkProps = Omit<React.ComponentPropsWithoutRef<'a'>, 'href' | 'children'> & {
+  to: string
+  content: React.ReactNode
+  className?: string | string[]
+};
+
+// Mock CSS modules to predictable classnames
 vi.mock('./Breadcrumbs.module.css', () => ({
   default: {
-    'breadcrumbs': 'breadcrumbs',
-    'variant--truncate': 'variant--truncate',
-    'variant--wrap': 'variant--wrap',
-    'separator': 'separator',
-    'label': 'label'
+    breadcrumbs: 'breadcrumbs',
+    separator: 'separator',
+    label: 'label'
   }
 }));
 
-describe('Breadcrumbs', () => {
-  const baseItems: BreadcrumbItem[] = [
-    { label: 'Home', link: '/' },
-    { label: 'Library', link: '/library' },
-    { label: 'Current' }
-  ];
+// Mock Text primitives to simple components
+vi.mock('../Text/Text.tsx', () => ({
+  TextMedium: ({ children, className, ...rest }: TextMediumProps) => (
+    <span className={Array.isArray(className) ? className.join(' ') : className} {...rest}>
+      {children}
+    </span>
+  )
+}));
 
-  it('renders with default props and items', () => {
-    renderWithProviders(<Breadcrumbs items={baseItems} />);
+vi.mock('../TextLink/TextLink.tsx', () => ({
+  TextLink: ({ to, className, content, ...rest }: TextLinkProps) => (
+    <a href={to} className={Array.isArray(className) ? className.join(' ') : className} {...rest}>
+      {content}
+    </a>
+  )
+}));
+
+describe('Breadcrumbs', () => {
+  it('renders nav with default test id and aria-label', () => {
+    render(
+      <Breadcrumbs
+        items={[
+          { label: 'Home', link: '/' },
+          { label: 'Library' }
+        ]}
+      />
+    );
 
     const nav = screen.getByTestId('breadcrumbs');
     expect(nav).toBeInTheDocument();
     expect(nav).toHaveAttribute('aria-label', 'breadcrumbs');
-
-    const list = nav.querySelector('ol');
-    expect(list).toBeInTheDocument();
-
-    const items = list!.querySelectorAll('li');
-    expect(items.length).toBe(3);
-
-    // First item has no separator
-    expect(items[0].querySelector(`.${'separator'}`)).toBeNull();
-
-    // Subsequent items have separator
-    expect(items[1].querySelector(`.${'separator'}`)).toHaveTextContent('/');
-    expect(items[2].querySelector(`.${'separator'}`)).toHaveTextContent('/');
-
-    // Last item has aria-current="page"
-    expect(items[2]).toHaveAttribute('aria-current', 'page');
-    expect(items[0].getAttribute('aria-current')).toBeNull();
   });
 
-  it('uses custom data-testid when provided', () => {
-    renderWithProviders(<Breadcrumbs items={baseItems} data-testid="custom-breadcrumbs" />);
-    expect(screen.getByTestId('custom-breadcrumbs')).toBeInTheDocument();
-  });
-
-  it('applies variant class names - truncate', () => {
-    renderWithProviders(
-      <Breadcrumbs items={baseItems} variant="truncate" />
-    );
-    const list = screen.getByRole('navigation').querySelector('ol')!;
-    expect(list.className).toContain('breadcrumbs');
-    expect(list.className).toContain('variant--truncate');
-  });
-
-  it('applies variant class names - wrap', () => {
-    renderWithProviders(
-      <Breadcrumbs items={baseItems} variant="wrap" />
-    );
-
-    const list2 = screen.getByRole('navigation').querySelector('ol')!;
-    expect(list2.className).toContain('variant--wrap');
-  });
-
-  it('applies custom className and style to the list', () => {
-    renderWithProviders(
+  it('applies className and style to the <ol>', () => {
+    render(
       <Breadcrumbs
-        items={baseItems}
-        className={['extra-class']}
-        style={{ marginTop: '10px' }}
+        data-testid="bc"
+        className={['extra-a', 'extra-b']}
+        style={{ marginTop: 12 }}
+        items={[
+          { label: 'Home', link: '/' },
+          { label: 'Page' }
+        ]}
       />
     );
 
-    const list = screen.getByRole('navigation').querySelector('ol')!;
-    expect(list.className).toContain('extra-class');
-    expect(list).toHaveStyle({ marginTop: '10px' });
+    const nav = screen.getByTestId('bc');
+    const ol = within(nav).getByRole('list');
+
+    expect(ol.className).toContain('breadcrumbs');
+    expect(ol.className).toContain('extra-a');
+    expect(ol.className).toContain('extra-b');
+    expect(ol).toHaveStyle({ marginTop: '12px' });
   });
 
-  it('renders links for items with link and text for items without link', () => {
-    renderWithProviders(<Breadcrumbs items={baseItems} />);
+  it('renders separators for items after the first with default separator "/"', () => {
+    render(
+      <Breadcrumbs
+        items={[
+          { label: 'Home', link: '/' },
+          { label: 'Section', link: '/section' },
+          { label: 'Current' }
+        ]}
+      />
+    );
 
-    const links0 = screen.getByTestId('breadcrumbs-link-0');
+    const sep1 = screen.getByTestId('breadcrumbs-separator-1');
+    const sep2 = screen.getByTestId('breadcrumbs-separator-2');
 
-    expect(links0).toHaveAttribute('href', '/');
-    expect(links0).toHaveTextContent('Home');
-
-    const links1 = screen.getByTestId('breadcrumbs-link-1');
-
-    expect(links1).toHaveAttribute('href', '/library');
-    expect(links1).toHaveTextContent('Library');
-
-    const texts0 = screen.getByTestId('breadcrumbs-text');
-
-    expect(texts0).toHaveTextContent('Current');
+    expect(sep1).toHaveTextContent('/');
+    expect(sep2).toHaveTextContent('/');
+    expect(sep1).toHaveAttribute('aria-hidden', 'true');
+    expect(sep2).toHaveAttribute('aria-hidden', 'true');
   });
 
-  it('uses provided separator', () => {
-    renderWithProviders(<Breadcrumbs items={baseItems} separator=">" />);
+  it('renders custom separator', () => {
+    render(
+      <Breadcrumbs
+        separator=">"
+        items={[
+          { label: 'Home', link: '/' },
+          { label: 'Current' }
+        ]}
+      />
+    );
 
-    const separators = screen
-      .getByRole('navigation')
-      .querySelectorAll(`.${'separator'}`);
-    expect(separators.length).toBe(2);
-    separators.forEach((sep) => {
-      expect(sep).toHaveTextContent('>');
-      expect(sep).toHaveAttribute('aria-hidden', 'true');
-    });
+    expect(screen.getByTestId('breadcrumbs-separator-1')).toHaveTextContent('>');
   });
 
-  it('handles single item without separators', () => {
-    renderWithProviders(<Breadcrumbs items={[{ label: 'Only' }]} />);
+  it('renders links for non-last items when link is provided, and text for last item', () => {
+    render(
+      <Breadcrumbs
+        data-testid="bc"
+        items={[
+          { label: 'Home', link: '/' },
+          { label: 'Section', link: '/section' },
+          { label: 'Current', link: '/current' }
+        ]}
+      />
+    );
 
-    const items = screen
-      .getByRole('navigation')
-      .querySelectorAll('li');
-    expect(items.length).toBe(1);
+    expect(screen.getByTestId('bc-link-0')).toHaveAttribute('href', '/');
+    expect(screen.getByTestId('bc-link-1')).toHaveAttribute('href', '/section');
 
-    expect(items[0]).toHaveAttribute('aria-current', 'page');
-    expect(items[0].querySelector(`.${'separator'}`)).toBeNull();
+    // last item should render as text, even if link exists
+    expect(screen.queryByTestId('bc-link-2')).toBeNull();
+    expect(screen.getByTestId('bc-text')).toHaveTextContent('Current');
+  });
+
+  it('renders first item without a separator (covers the ": undefined" branch)', () => {
+    render(
+      <Breadcrumbs
+        items={[
+          { label: 'Only', link: '/' },
+          { label: 'Current' }
+        ]}
+      />
+    );
+
+    expect(screen.queryByTestId('breadcrumbs-separator-0')).toBeNull();
+  });
+
+  it('sets aria-current="page" only on the last breadcrumb item', () => {
+    render(
+      <Breadcrumbs
+        items={[
+          { label: 'Home', link: '/' },
+          { label: 'Section', link: '/section' },
+          { label: 'Current' }
+        ]}
+      />
+    );
+
+    const nav = screen.getByTestId('breadcrumbs');
+    const items = within(nav).getAllByRole('listitem');
+
+    expect(items[0]).not.toHaveAttribute('aria-current');
+    expect(items[1]).not.toHaveAttribute('aria-current');
+    expect(items[2]).toHaveAttribute('aria-current', 'page');
+  });
+
+  it('uses provided data-testid prefix for link and separator test ids', () => {
+    render(
+      <Breadcrumbs
+        data-testid="custom"
+        items={[
+          { label: 'Home', link: '/' },
+          { label: 'Current' }
+        ]}
+      />
+    );
+
+    expect(screen.getByTestId('custom')).toBeInTheDocument();
+    expect(screen.getByTestId('custom-link-0')).toBeInTheDocument();
+    expect(screen.getByTestId('custom-separator-1')).toBeInTheDocument();
   });
 });

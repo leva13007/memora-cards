@@ -15,7 +15,6 @@ export interface BreadcrumbsProps {
   style?: React.CSSProperties
   ['data-testid']?: string
   items: BreadcrumbItem[]
-  variant?: 'truncate' | 'wrap'
   separator?: string
 }
 
@@ -23,14 +22,12 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
   className,
   style,
   items,
-  variant = 'truncate',
   separator = '/',
   'data-testid': dataTestId = 'breadcrumbs'
 }) => {
   const classes = clx(
     styles,
     'breadcrumbs',
-    `variant--${variant}`,
     ...(className || [])
   );
 
@@ -42,11 +39,13 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
             <li key={item.label} aria-current={i === items.length - 1 ? 'page' : undefined}>
               {i > 0
                 ? (
-                  <span className={styles.separator} aria-hidden="true">{separator}</span>
+                  <TextMedium className={[styles.separator]} aria-hidden="true" data-testid={`${dataTestId}-separator-${i}`}>
+                    {separator}
+                  </TextMedium>
                 )
                 : undefined}
               {
-                item.link
+                item.link && i !== items.length - 1
                   ? (
                     <TextLink to={item.link} className={[styles.label]} data-testid={`${dataTestId}-link-${i}`} content={item.label} />
                   )
