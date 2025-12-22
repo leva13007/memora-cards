@@ -7,10 +7,14 @@ const meta = {
   component: TextLink,
   tags: ['autodocs'],
   args: {
-    content: 'test link'
+    content: 'test link',
+    to: '/'
   },
   argTypes: {
     content: {
+      control: { type: 'text' }
+    },
+    to: {
       control: { type: 'text' }
     }
   }
@@ -52,10 +56,12 @@ export const WithExtraClasses: Story = {
 
 export const CustomTestId: Story = {
   args: {
-    'content': 'TextLink with Custom Test ID',
-    'data-testid': 'custom-h1',
-    'to': '/'
-  }
+    content: 'TextLink with Custom Test ID',
+    to: '/'
+  },
+  render: args => (
+    <TextLink {...args} data-testid="custom-h1" />
+  )
 };
 
 export const InsideParagraph: StoryObj<typeof meta> = {
@@ -67,7 +73,7 @@ export const InsideParagraph: StoryObj<typeof meta> = {
     <TextMedium>
       This is some text before the link,
       {' '}
-      <TextLink {...args}>click here</TextLink>
+      <TextLink {...args} />
       {' '}
       to continue reading.
     </TextMedium>

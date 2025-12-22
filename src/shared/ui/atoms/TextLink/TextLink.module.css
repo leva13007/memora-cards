@@ -10,3 +10,8 @@
 .link:hover, .link.__hovered {
   color: var(--color-link-hover);
 }
+
+
+.link:focus-visible {
+  outline: 1px solid var(--color-link, currentColor);
+}
