@@ -36,7 +36,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
       <ol style={style} className={classes}>
         {
           items.map((item, i) => (
-            <li key={item.label} aria-current={i === items.length - 1 ? 'page' : undefined}>
+            <li key={item.label}>
               {i > 0
                 ? (
                   <TextMedium className={[styles.separator]} aria-hidden="true" data-testid={`${dataTestId}-separator-${i}`}>
@@ -47,10 +47,23 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
               {
                 item.link && i !== items.length - 1
                   ? (
-                    <TextLink to={item.link} className={[styles.label]} data-testid={`${dataTestId}-link-${i}`} content={item.label} />
+                    <TextLink
+                      to={item.link}
+                      className={[styles.label]}
+                      data-testid={`${dataTestId}-link-${i}`}
+                      content={item.label}
+                    />
                   )
                   : (
-                    <TextMedium className={[styles.label]} data-testid={`${dataTestId}-text`}>{item.label}</TextMedium>
+                    <TextMedium
+                      as="span"
+                      tabIndex={-1}
+                      aria-current={i === items.length - 1 ? 'page' : undefined}
+                      className={[styles.label]}
+                      data-testid={`${dataTestId}-text`}
+                    >
+                      {item.label}
+                    </TextMedium>
                   )
               }
             </li>

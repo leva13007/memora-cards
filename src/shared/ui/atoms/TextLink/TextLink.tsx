@@ -27,7 +27,13 @@ export const TextLink: React.FC<TextLinkProps> = ({
   );
 
   return (
-    <RouterLink to={to} style={style} className={classes} data-testid={dataTestId} aria-label={ariaLabel}>
+    <RouterLink
+      to={to}
+      style={style}
+      className={classes}
+      data-testid={dataTestId}
+      aria-label={ariaLabel}
+    >
       {content}
     </RouterLink>
   );

@@ -156,11 +156,26 @@ describe('Breadcrumbs', () => {
     );
 
     const nav = screen.getByTestId('breadcrumbs');
-    const items = within(nav).getAllByRole('listitem');
 
-    expect(items[0]).not.toHaveAttribute('aria-current');
-    expect(items[1]).not.toHaveAttribute('aria-current');
-    expect(items[2]).toHaveAttribute('aria-current', 'page');
+    const listItems = within(nav).getAllByRole('listitem');
+
+    // aria-current is on the current crumb element itself
+    const currentCrumb = within(listItems[2]).getByTestId('breadcrumbs-text');
+    expect(currentCrumb).toHaveAttribute('aria-current', 'page');
+  });
+
+  it('renders the last breadcrumb as not focusable text (tabIndex=-1)', () => {
+    render(
+      <Breadcrumbs
+        items={[
+          { label: 'Home', link: '/' },
+          { label: 'Current' }
+        ]}
+      />
+    );
+
+    const currentCrumb = screen.getByTestId('breadcrumbs-text');
+    expect(currentCrumb).toHaveAttribute('tabindex', '-1');
   });
 
   it('uses provided data-testid prefix for link and separator test ids', () => {
