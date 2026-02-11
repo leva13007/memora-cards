@@ -9,7 +9,7 @@ interface H1Props {
   ['data-testid']?: string
 }
 
-export const H1: React.FC<H1Props> = ({ children, className, style, 'data-testid': dataTestId = 'heading' }) => {
+export const H1: React.FC<H1Props> = ({ children, className, style, 'data-testid': dataTestId = 'heading-1' }) => {
   const classes = clx(
     styles,
     'h1',

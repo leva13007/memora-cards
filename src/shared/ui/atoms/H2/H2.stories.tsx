@@ -9,8 +9,11 @@ const meta = {
     children: 'Title'
   },
   argTypes: {
-    children: {
+    'children': {
       control: { type: 'text' }
+    },
+    'data-testid': {
+      type: 'string'
     }
   }
 } satisfies Meta<typeof H2>;

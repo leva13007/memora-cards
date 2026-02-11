@@ -7,7 +7,7 @@ import styles from './H1.module.css';
 describe('H1 component', () => {
   it('renders children correctly', () => {
     render(<H1>Test Heading</H1>);
-    const heading = screen.getByTestId('heading');
+    const heading = screen.getByTestId('heading-1');
     expect(heading).toBeInTheDocument();
     expect(heading.tagName).toBe('H1');
     expect(heading).toHaveTextContent('Test Heading');
@@ -15,13 +15,13 @@ describe('H1 component', () => {
 
   it('applies base class from CSS module', () => {
     render(<H1>Heading</H1>);
-    const heading = screen.getByTestId('heading');
+    const heading = screen.getByTestId('heading-1');
     expect(heading.className).toContain(styles.h1);
   });
 
   it('appends additional class names when provided', () => {
     render(<H1 className={['extra-class', 'another-class']}>Heading</H1>);
-    const heading = screen.getByTestId('heading');
+    const heading = screen.getByTestId('heading-1');
 
     expect(heading.className).toContain(styles.h1);
     expect(heading.className).toContain('extra-class');
@@ -33,7 +33,7 @@ describe('H1 component', () => {
     render(
       <H1 style={style}>Styled Heading</H1>
     );
-    const heading = screen.getByTestId('heading');
+    const heading = screen.getByTestId('heading-1');
 
     expect(heading.style.color).toBe('red');
     expect(heading.style.fontSize).toBe('24px');
@@ -59,7 +59,7 @@ describe('H1 component', () => {
 
   it('handles empty className array gracefully', () => {
     render(<H1 className={[]}>Heading</H1>);
-    const heading = screen.getByTestId('heading');
+    const heading = screen.getByTestId('heading-1');
     // Should only have the base CSS module class
     expect(heading.className).toBe(styles.h1);
   });
