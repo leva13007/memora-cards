@@ -9,8 +9,15 @@ const meta = {
     children: 'Title'
   },
   argTypes: {
-    children: {
+    'children': {
       control: { type: 'text' }
+    },
+    'data-testid': {
+      type: 'string'
+    },
+    'as': {
+      control: { type: 'select' },
+      options: ['span', 'p']
     }
   }
 } satisfies Meta<typeof TextBold>;

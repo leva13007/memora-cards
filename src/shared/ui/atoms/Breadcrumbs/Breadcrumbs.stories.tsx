@@ -13,11 +13,14 @@ const meta = {
     ]
   },
   argTypes: {
-    items: {
+    'items': {
       control: { type: 'object' }
     },
-    separator: {
+    'separator': {
       control: { type: 'text' }
+    },
+    'data-testid': {
+      type: 'string'
     }
   }
 } satisfies Meta<typeof Breadcrumbs>;

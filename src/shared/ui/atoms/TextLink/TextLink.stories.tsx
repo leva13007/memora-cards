@@ -11,11 +11,14 @@ const meta = {
     to: '/'
   },
   argTypes: {
-    content: {
+    'content': {
       control: { type: 'text' }
     },
-    to: {
+    'to': {
       control: { type: 'text' }
+    },
+    'data-testid': {
+      type: 'string'
     }
   }
 } satisfies Meta<typeof TextLink>;
